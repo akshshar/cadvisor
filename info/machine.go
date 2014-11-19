@@ -31,6 +31,9 @@ type MachineInfo struct {
 
 	// Filesystems on this machine.
 	Filesystems []FsInfo `json:"filesystems"`
+
+        //Network Resources for all interfaces
+        NetworkResources []string `json:"network_resources"`
 }
 
 type VersionInfo struct {

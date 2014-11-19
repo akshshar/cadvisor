@@ -23,6 +23,7 @@ import (
 	"strings"
 	"syscall"
 	"net"
+        "encoding/json"
 
 	dclient "github.com/fsouza/go-dockerclient"
 	"github.com/google/cadvisor/container/docker"
@@ -96,19 +97,17 @@ func getMachineInfo() (*info.MachineInfo, error) {
         }
     }
 
+    networkResourcesJson, _ := json.Marshal(networkResources)
+    networkResourcesString := string(networkResourcesJson)
+
     if len(networkResources) == 0 {
 		return nil, fmt.Errorf("failed to determine network interface resources: %s", string(out))
-	}
-
-	numCores := len(numCpuRegexp.FindAll(out, -1))
-	if numCores == 0 {
-		return nil, fmt.Errorf("failed to count cores in output: %s", string(out))
 	}
 
 	machineInfo := &info.MachineInfo{
 		NumCores:       numCores,
 		MemoryCapacity: memoryCapacity,
-        NetworkResources: networkResources,
+                NetworkResources: networkResourcesString,
 	}
 	for _, fs := range filesystems {
 		machineInfo.Filesystems = append(machineInfo.Filesystems, info.FsInfo{fs.Device, fs.Capacity})
