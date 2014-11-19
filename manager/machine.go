@@ -22,6 +22,7 @@ import (
 	"strconv"
 	"strings"
 	"syscall"
+	"net"
 
 	dclient "github.com/fsouza/go-dockerclient"
 	"github.com/google/cadvisor/container/docker"
@@ -31,6 +32,15 @@ import (
 
 var numCpuRegexp = regexp.MustCompile("processor\\t*: +[0-9]+")
 var memoryCapacityRegexp = regexp.MustCompile("MemTotal: *([0-9]+) kB")
+var networkParams = []string{"collisions", "rx_errors", "rx_packets", "tx_errors",
+                                "multicast",  "rx_fifo_errors", "tx_aborted_errors", "tx_fifo_errors",
+                                "rx_bytes", "rx_frame_errors", "tx_bytes", "tx_heartbeat_errors",
+                                "rx_compressed", "rx_length_errors", "tx_carrier_errors", "tx_packets",
+                                "rx_crc_errors", "rx_missed_errors", "tx_compressed", "tx_window_errors",
+                                "rx_dropped", "rx_over_errors", "tx_dropped"}
+var networkResources = make(map[string]map[string][]string)
+
+                       
 
 func getMachineInfo() (*info.MachineInfo, error) {
 	// Get the number of CPUs from /proc/cpuinfo.
@@ -69,9 +79,36 @@ func getMachineInfo() (*info.MachineInfo, error) {
 		return nil, err
 	}
 
+    netdevList, err := net.Interfaces()
+    if err != nil {
+        panic(err)
+    }
+
+    for _, netdev := range netdevList {
+        networkResources[netdev.Name] = make(map[string][]string)
+        for _, resourceFile := range networkParams {
+            //loop through the network devices and obtain individual resources
+            out, err := ioutil.ReadFile("/sys/class/net/"+netdev.Name+"/statistics/"+string(resourceFile))
+            if err != nil {
+                panic(err)
+            }
+            networkResources[netdev.Name][resourceFile] = []string{string(out)}
+        }
+    }
+
+    if len(networkResources) == 0 {
+		return nil, fmt.Errorf("failed to determine network interface resources: %s", string(out))
+	}
+
+	numCores := len(numCpuRegexp.FindAll(out, -1))
+	if numCores == 0 {
+		return nil, fmt.Errorf("failed to count cores in output: %s", string(out))
+	}
+
 	machineInfo := &info.MachineInfo{
 		NumCores:       numCores,
 		MemoryCapacity: memoryCapacity,
+        NetworkResources: networkResources,
 	}
 	for _, fs := range filesystems {
 		machineInfo.Filesystems = append(machineInfo.Filesystems, info.FsInfo{fs.Device, fs.Capacity})
