@@ -24,7 +24,7 @@ import (
 	"path"
 	"strings"
 
-	"github.com/google/cadvisor/info"
+	"github.com/akshshar/cadvisor/info"
 )
 
 // Client represents the base URL for a cAdvisor client.

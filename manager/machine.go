@@ -23,12 +23,12 @@ import (
 	"strings"
 	"syscall"
 	"net"
-        "encoding/json"
+//        "encoding/json"
 
 	dclient "github.com/fsouza/go-dockerclient"
-	"github.com/google/cadvisor/container/docker"
-	"github.com/google/cadvisor/fs"
-	"github.com/google/cadvisor/info"
+	"github.com/akshshar/cadvisor/container/docker"
+	"github.com/akshshar/cadvisor/fs"
+	"github.com/akshshar/cadvisor/info"
 )
 
 var numCpuRegexp = regexp.MustCompile("processor\\t*: +[0-9]+")
@@ -97,8 +97,8 @@ func getMachineInfo() (*info.MachineInfo, error) {
         }
     }
 
-    networkResourcesJson, _ := json.Marshal(networkResources)
-    networkResourcesString := string(networkResourcesJson)
+//    networkResourcesJson, _ := json.Marshal(networkResources)
+//    networkResourcesString := string(networkResourcesJson)
 
     if len(networkResources) == 0 {
 		return nil, fmt.Errorf("failed to determine network interface resources: %s", string(out))
@@ -107,7 +107,7 @@ func getMachineInfo() (*info.MachineInfo, error) {
 	machineInfo := &info.MachineInfo{
 		NumCores:       numCores,
 		MemoryCapacity: memoryCapacity,
-                NetworkResources: networkResourcesString,
+                NetworkResources: networkResources,
 	}
 	for _, fs := range filesystems {
 		machineInfo.Filesystems = append(machineInfo.Filesystems, info.FsInfo{fs.Device, fs.Capacity})

@@ -1,7 +1,7 @@
 package memory
 
 import (
-	"github.com/google/cadvisor/info"
+	"github.com/akshshar/cadvisor/info"
 )
 
 // A circular buffer for ContainerStats.

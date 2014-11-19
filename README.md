@@ -2,7 +2,7 @@
 
 cAdvisor (Container Advisor) provides container users an understanding of the resource usage and performance characteristics of their running containers. It is a running daemon that collects, aggregates, processes, and exports information about running containers. Specifically, for each container it keeps resource isolation parameters, historical resource usage, histograms of complete historical resource usage and network statistics. This data is exported by container and machine-wide.
 
-cAdvisor has native support for [Docker](https://github.com/docker/docker) containers and should support just about any other container type out of the box. We strive for support accross the board so feel free to open an issue if that is not the case. cAdvisor's container abstraction is based on [lmctfy](https://github.com/google/lmctfy)'s so containers are inherently nested hierarchically.
+cAdvisor has native support for [Docker](https://github.com/docker/docker) containers and should support just about any other container type out of the box. We strive for support accross the board so feel free to open an issue if that is not the case. cAdvisor's container abstraction is based on [lmctfy](https://github.com/akshshar/lmctfy)'s so containers are inherently nested hierarchically.
 
 ![cAdvisor](logo.png "cAdvisor")
 
@@ -19,7 +19,7 @@ sudo docker run \
   --publish=8080:8080 \
   --detach=true \
   --name=cadvisor \
-  google/cadvisor:latest
+  akshshar/cadvisor:latest
 ```
 
 cAdvisor is now running (in the background) on `http://localhost:8080`. The setup includes directories with Docker state cAdvisor needs to observe.
@@ -61,4 +61,4 @@ cAdvisor aims to improve the resource usage and performance characteristics of r
 
 ## Community
 
-Contributions, questions, and comments are all welcomed and encouraged! cAdvisor developers hang out in [#google-containers](http://webchat.freenode.net/?channels=google-containers) room on [freenode.net](http://freenode.net).  We also have the [google-containers Google Groups mailing list](https://groups.google.com/forum/#!forum/google-containers).
+Contributions, questions, and comments are all welcomed and encouraged! cAdvisor developers hang out in [#akshshar-containers](http://webchat.freenode.net/?channels=akshshar-containers) room on [freenode.net](http://freenode.net).  We also have the [akshshar-containers Google Groups mailing list](https://groups.akshshar.com/forum/#!forum/akshshar-containers).

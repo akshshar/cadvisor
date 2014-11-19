@@ -3,7 +3,7 @@ package memory
 import (
 	"testing"
 
-	"github.com/google/cadvisor/info"
+	"github.com/akshshar/cadvisor/info"
 )
 
 func createStats(id int32) *info.ContainerStats {

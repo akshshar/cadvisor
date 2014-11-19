@@ -19,7 +19,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/google/cadvisor/info"
+	"github.com/akshshar/cadvisor/info"
 	influxdb "github.com/influxdb/influxdb/client"
 )
 

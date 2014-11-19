@@ -5,7 +5,7 @@
 You should be able to `go get` cAdvisor as expected (we use `-d` to only download):
 
 ```
-$ go get -d github.com/google/cadvisor
+$ go get -d github.com/akshshar/cadvisor
 ```
 
 We use `godep` so you will need to get that as well:
@@ -17,11 +17,11 @@ $ go get github.com/tools/godep
 At this point you can build cAdvisor:
 
 ```
-$ godep go build github.com/google/cadvisor
+$ godep go build github.com/akshshar/cadvisor
 ```
 
 or run unit tests:
 
 ```
-$ godep go test github.com/google/cadvisor/...
+$ godep go test github.com/akshshar/cadvisor/...
 ```

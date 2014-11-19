@@ -25,8 +25,8 @@ import (
 	"time"
 
 	"github.com/golang/glog"
-	"github.com/google/cadvisor/info"
-	"github.com/google/cadvisor/manager"
+	"github.com/akshshar/cadvisor/info"
+	"github.com/akshshar/cadvisor/manager"
 )
 
 const (

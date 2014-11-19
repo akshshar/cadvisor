@@ -19,8 +19,8 @@ import (
 
 	"github.com/docker/libcontainer/cgroups"
 	"github.com/golang/glog"
-	"github.com/google/cadvisor/container"
-	"github.com/google/cadvisor/info"
+	"github.com/akshshar/cadvisor/container"
+	"github.com/akshshar/cadvisor/info"
 )
 
 type cgroupSubsystems struct {

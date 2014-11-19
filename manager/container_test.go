@@ -22,10 +22,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/google/cadvisor/container"
-	"github.com/google/cadvisor/info"
-	itest "github.com/google/cadvisor/info/test"
-	stest "github.com/google/cadvisor/storage/test"
+	"github.com/akshshar/cadvisor/container"
+	"github.com/akshshar/cadvisor/info"
+	itest "github.com/akshshar/cadvisor/info/test"
+	stest "github.com/akshshar/cadvisor/storage/test"
 )
 
 const containerName = "/container"

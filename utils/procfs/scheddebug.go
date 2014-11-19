@@ -19,7 +19,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/google/cadvisor/utils/fs"
+	"github.com/akshshar/cadvisor/utils/fs"
 )
 
 type SchedulerLoadReader interface {

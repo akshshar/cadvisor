@@ -21,11 +21,11 @@ import (
 	"time"
 
 	"github.com/golang/glog"
-	"github.com/google/cadvisor/manager"
-	"github.com/google/cadvisor/storage"
-	"github.com/google/cadvisor/storage/bigquery"
-	"github.com/google/cadvisor/storage/influxdb"
-	"github.com/google/cadvisor/storage/memory"
+	"github.com/akshshar/cadvisor/manager"
+	"github.com/akshshar/cadvisor/storage"
+	"github.com/akshshar/cadvisor/storage/bigquery"
+	"github.com/akshshar/cadvisor/storage/influxdb"
+	"github.com/akshshar/cadvisor/storage/memory"
 )
 
 var argSampleSize = flag.Int("samples", 1024, "number of samples we want to keep")

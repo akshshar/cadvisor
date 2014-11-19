@@ -19,10 +19,10 @@ import (
 	"reflect"
 	"testing"
 
-	"code.google.com/p/gomock/gomock"
+	"code.akshshar.com/p/gomock/gomock"
 
-	"github.com/google/cadvisor/utils/fs"
-	"github.com/google/cadvisor/utils/fs/mockfs"
+	"github.com/akshshar/cadvisor/utils/fs"
+	"github.com/akshshar/cadvisor/utils/fs/mockfs"
 )
 
 func TestReadProcessSchedStat(t *testing.T) {

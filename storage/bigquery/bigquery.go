@@ -20,9 +20,9 @@ import (
 	"time"
 
 	bigquery "code.google.com/p/google-api-go-client/bigquery/v2"
-	"github.com/google/cadvisor/info"
-	"github.com/google/cadvisor/storage"
-	"github.com/google/cadvisor/storage/bigquery/client"
+	"github.com/akshshar/cadvisor/info"
+	"github.com/akshshar/cadvisor/storage"
+	"github.com/akshshar/cadvisor/storage/bigquery/client"
 )
 
 type bigqueryStorage struct {

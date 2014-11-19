@@ -19,9 +19,9 @@ import (
 
 	"github.com/docker/libcontainer"
 	"github.com/docker/libcontainer/cgroups"
-	cgroupfs "github.com/docker/libcontainer/cgroups/fs"
+//	cgroupfs "github.com/docker/libcontainer/cgroups/fs"
 	"github.com/docker/libcontainer/network"
-	"github.com/google/cadvisor/info"
+	"github.com/akshshar/cadvisor/info"
 )
 
 // Get stats of the specified container
@@ -30,7 +30,7 @@ func GetStats(cgroup *cgroups.Cgroup, state *libcontainer.State) (*info.Containe
 	stats := &libcontainer.ContainerStats{}
 
 	var err error
-	stats.CgroupStats, err = cgroupfs.GetStats(cgroup)
+//	stats.CgroupStats, err = cgroupfs.GetStats(cgroup)
 	if err != nil {
 		return &info.ContainerStats{}, err
 	}
@@ -39,13 +39,14 @@ func GetStats(cgroup *cgroups.Cgroup, state *libcontainer.State) (*info.Containe
 	return toContainerStats(stats), nil
 }
 
-func GetStatsCgroupOnly(cgroup *cgroups.Cgroup) (*info.ContainerStats, error) {
-	s, err := cgroupfs.GetStats(cgroup)
-	if err != nil {
-		return nil, err
-	}
-	return toContainerStats(&libcontainer.ContainerStats{CgroupStats: s}), nil
-}
+//func GetStatsCgroupOnly(cgroup *cgroups.Cgroup) (*info.ContainerStats, error) {
+//	s, err := cgroupfs.GetStats(cgroup)
+//	if err != nil {
+//		return nil, err
+//	}
+
+//	return toContainerStats(&libcontainer.ContainerStats{CgroupStats: s}), nil
+//}
 
 func DiskStatsCopy(blkio_stats []cgroups.BlkioStatEntry) (stat []info.PerDiskStats) {
 	if len(blkio_stats) == 0 {

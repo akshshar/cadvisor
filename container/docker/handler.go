@@ -28,11 +28,11 @@ import (
 	cgroup_fs "github.com/docker/libcontainer/cgroups/fs"
 	"github.com/fsouza/go-dockerclient"
 	"github.com/golang/glog"
-	"github.com/google/cadvisor/container"
-	containerLibcontainer "github.com/google/cadvisor/container/libcontainer"
-	"github.com/google/cadvisor/fs"
-	"github.com/google/cadvisor/info"
-	"github.com/google/cadvisor/utils"
+	"github.com/akshshar/cadvisor/container"
+	containerLibcontainer "github.com/akshshar/cadvisor/container/libcontainer"
+	"github.com/akshshar/cadvisor/fs"
+	"github.com/akshshar/cadvisor/info"
+	"github.com/akshshar/cadvisor/utils"
 )
 
 // Relative path from Docker root to the libcontainer per-container state.

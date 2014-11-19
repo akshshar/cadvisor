@@ -20,7 +20,7 @@ import (
 	"io"
 	"strconv"
 
-	"github.com/google/cadvisor/utils/fs"
+	"github.com/akshshar/cadvisor/utils/fs"
 )
 
 type ProcessSchedStat struct {

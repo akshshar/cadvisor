@@ -1,31 +1,31 @@
 {
-	"ImportPath": "github.com/google/cadvisor",
+	"ImportPath": "github.com/akshshar/cadvisor",
 	"GoVersion": "go1.3",
 	"Packages": [
 		"./..."
 	],
 	"Deps": [
 		{
-			"ImportPath": "code.google.com/p/go.exp/inotify",
+			"ImportPath": "code.akshshar.com/p/go.exp/inotify",
 			"Comment": "null-75",
 			"Rev": "bd8df7009305d6ada223ea3c95b94c0f38bfa119"
 		},
 		{
-			"ImportPath": "code.google.com/p/goauth2/oauth",
+			"ImportPath": "code.akshshar.com/p/goauth2/oauth",
 			"Comment": "weekly-56",
 			"Rev": "afe77d958c701557ec5dc56f6936fcc194d15520"
 		},
 		{
-			"ImportPath": "code.google.com/p/gomock/gomock",
+			"ImportPath": "code.akshshar.com/p/gomock/gomock",
 			"Rev": "5d0b59c9f277f888d2c70b00908236a30ab90f45"
 		},
 		{
-			"ImportPath": "code.google.com/p/google-api-go-client/bigquery/v2",
+			"ImportPath": "code.akshshar.com/p/akshshar-api-go-client/bigquery/v2",
 			"Comment": "release-101",
 			"Rev": "e1c259484b495133836706f46319f5897f1e9bf6"
 		},
 		{
-			"ImportPath": "code.google.com/p/google-api-go-client/googleapi",
+			"ImportPath": "code.akshshar.com/p/akshshar-api-go-client/akshsharapi",
 			"Comment": "release-101",
 			"Rev": "e1c259484b495133836706f46319f5897f1e9bf6"
 		},

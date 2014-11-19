@@ -33,7 +33,7 @@ type MachineInfo struct {
 	Filesystems []FsInfo `json:"filesystems"`
 
         //Network Resources for all interfaces
-        NetworkResources string `json:"network_resources"`
+        NetworkResources map[string]map[string][]string `json:"network_resources"`
 }
 
 type VersionInfo struct {
